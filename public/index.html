@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temp Mail — Free Disposable Temporary Email</title>
+<meta name="description" content="Get a free temporary email address in one second. No sign-up. Receive verification codes and OTPs, then throw the address away.">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo"><span class="logo-icon">✉️</span> Temp Mail</div>
+    <h1>Free Disposable <span class="h1-accent">Temporary Email</span></h1>
+    <p class="tagline">Get a temporary email address in one second. No sign-up, no password to remember. Use it for sign-ups and verification codes — then throw it away.</p>
+    <div class="hero-badges">
+      <span class="badge badge-teal">⚡ Instant address</span>
+      <span class="badge badge-amber">🔒 No sign-up</span>
+      <span class="badge badge-purple">🌍 Free forever</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ ADDRESS CARD ============ -->
+  <section class="address-card">
+    <label class="field-label" for="emailAddress">Your temporary email address</label>
+    <div class="address-box">
+      <span id="emailAddress" class="address-text">Creating your address…</span>
+      <button id="copyBtn" class="copy-round" type="button" title="Copy address" aria-label="Copy address">📋</button>
+    </div>
+
+    <div class="toolbar">
+      <button id="copyPill" class="pill pill-teal" type="button">📋 Copy</button>
+      <button id="refreshBtn" class="pill pill-amber" type="button">🔄 Refresh</button>
+      <button id="changeBtn" class="pill pill-purple" type="button">✏️ Change</button>
+      <button id="newBtn" class="pill pill-coral" type="button">➕ New</button>
+      <button id="deleteBtn" class="pill pill-dark" type="button">✖ Delete</button>
+    </div>
+
+    <div class="custom-row">
+      <input id="customName" type="text" placeholder="Custom name (optional)" maxlength="30" autocomplete="off">
+      <select id="domainSelect" aria-label="Choose a domain">
+        <option value="">Loading domains…</option>
+      </select>
+      <button id="customBtn" class="custom-btn" type="button">Create custom address</button>
+    </div>
+    <p class="hint">Tip: dots are removed from custom names automatically. Keep the name simple — letters and numbers only.</p>
+    <p class="status" id="statusMsg" role="status"></p>
+  </section>
+
+  <!-- AD SLOT 1: paste your Monetag / Adsterra ad code BETWEEN these two comments.
+       Leave the "Your ad here" box in place until your ad code is ready. -->
+  <div class="ad-slot"><span>Your ad here</span></div>
+  <!-- /AD SLOT 1 -->
+
+  <!-- ============ INBOX ============ -->
+  <section class="inbox-card">
+    <div class="inbox-head">
+      <h2>📥 Inbox</h2>
+      <span class="inbox-meta"><span id="inboxCount">0 messages</span> · <span class="live-dot"></span> auto-refresh every 15s</span>
+    </div>
+
+    <div id="inboxEmpty" class="inbox-empty">
+      <div class="empty-art">
+        <div class="empty-circle"><span class="empty-envelope">✉️</span></div>
+        <div class="empty-chip chip-1">🔑 OTP</div>
+        <div class="empty-chip chip-2">✅ Verified</div>
+        <div class="empty-chip chip-3">📩 Code</div>
+      </div>
+      <p class="empty-title">Your inbox is empty</p>
+      <p class="empty-sub">Waiting for incoming emails</p>
+    </div>
+
+    <ul id="inboxList" class="inbox-list" hidden></ul>
+  </section>
+
+  <!-- ============ OPEN MESSAGE ============ -->
+  <section id="mailView" class="mail-view" hidden>
+    <button id="closeMail" class="back-btn" type="button">← Back to inbox</button>
+    <h3 id="mailSubject"></h3>
+    <p class="mail-meta">From: <span id="mailFrom"></span> · <span id="mailDate"></span></p>
+    <div id="codeBox" class="code-box" hidden>
+      <span class="code-label">Verification code:</span>
+      <strong id="codeValue" class="code-value"></strong>
+      <button id="copyCodeBtn" class="copy-code-btn" type="button">Copy code</button>
+    </div>
+    <div id="mailBody" class="mail-body"></div>
+  </section>
+
+  <!-- ============ SAVED ADDRESSES ============ -->
+  <section class="saved-card">
+    <h2>🕘 My addresses</h2>
+    <p class="saved-hint">Addresses you used before are saved on this device. Tap one to switch back to it.</p>
+    <ul id="savedList" class="saved-list"></ul>
+    <p id="savedEmpty" class="saved-empty">No saved addresses yet.</p>
+  </section>
+
+  <!-- AD SLOT 2: paste your Monetag / Adsterra ad code BETWEEN these two comments.
+       Leave the "Your ad here" box in place until your ad code is ready. -->
+  <div class="ad-slot"><span>Your ad here</span></div>
+  <!-- /AD SLOT 2 -->
+
+  <!-- ============ WHAT IS TEMP MAIL ============ -->
+  <section class="info info-teal">
+    <h2>What is disposable temporary email?</h2>
+    <p>A disposable temporary email is a free email address that you use for a short time and then throw away. You do not need to give your real email address to every website that asks for one. Sign up with a temporary address, receive the verification code here, and walk away — no spam in your real inbox, ever.</p>
+    <p>Temporary email is receive-only: you can read messages that arrive, but you cannot send mail from a temporary address. That is exactly what makes it safe for one-time sign-ups.</p>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step step-teal">
+        <span class="step-num">1</span>
+        <h3>Get an address</h3>
+        <p>Your temporary address is created automatically when you open this page. You can also pick a custom name and domain.</p>
+      </div>
+      <div class="step step-amber">
+        <span class="step-num">2</span>
+        <h3>Use it anywhere</h3>
+        <p>Copy the address and paste it into any sign-up form, app or website that asks for an email.</p>
+      </div>
+      <div class="step step-purple">
+        <span class="step-num">3</span>
+        <h3>Read the code</h3>
+        <p>The verification email appears in your inbox below. Open it, copy the highlighted code, and you are done.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USE CASES ============ -->
+  <section class="uses info-amber">
+    <h2>What can you use it for?</h2>
+    <ul class="use-list">
+      <li>🔐 <strong>Sign-up verification</strong> — get the OTP or confirmation link without sharing your real email.</li>
+      <li>🛡️ <strong>Protect your real inbox</strong> — keep spam, newsletters and promotions away from your personal email.</li>
+      <li>🧪 <strong>Testing</strong> — developers and testers can try sign-up flows again and again with fresh addresses.</li>
+      <li>🎁 <strong>One-time offers</strong> — grab a free trial, coupon or download that needs an email address.</li>
+      <li>🎮 <strong>Games and apps</strong> — try a new app without linking it to your real identity.</li>
+      <li>📝 <strong>Forums and surveys</strong> — join a discussion or fill a form without later emails following you.</li>
+    </ul>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq info-purple">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Is Temp Mail really free?</summary>
+      <p>Yes. Creating an address, receiving mail and switching addresses are all free, with no account and no limits on how many addresses you make.</p>
+    </details>
+    <details>
+      <summary>Do I need to sign up or give my real email?</summary>
+      <p>No. There is no sign-up at all. Your address is created instantly when you open the page.</p>
+    </details>
+    <details>
+      <summary>How long do messages stay in the inbox?</summary>
+      <p>Messages are kept for a short time only — usually a few hours — and then deleted automatically. Copy any code you need right away.</p>
+    </details>
+    <details>
+      <summary>Can I send email from a temporary address?</summary>
+      <p>No. Temporary addresses are receive-only. You can read incoming mail, but you cannot send replies or new messages.</p>
+    </details>
+    <details>
+      <summary>Can I choose my own address name?</summary>
+      <p>Yes. Type a name in the custom-name box, pick a domain, and press "Create custom address". Dots are removed from names automatically.</p>
+    </details>
+    <details>
+      <summary>Why did a website reject my temporary address?</summary>
+      <p>Some websites block well-known temporary-mail domains. If that happens, try creating a new address with a different domain from the domain picker.</p>
+    </details>
+    <details>
+      <summary>Is it safe to use for important accounts?</summary>
+      <p>No. Never use a temporary address for banking, money, password recovery or anything you cannot afford to lose. Use your real email for important accounts.</p>
+    </details>
+    <details>
+      <summary>Do you store my emails?</summary>
+      <p>Messages live only as long as the address exists and are deleted automatically after a short time. Your previous addresses are saved only in your own browser (localStorage) so you can switch back to them.</p>
+    </details>
+  </section>
+
+  <!-- ============ ADVERTISING ============ -->
+  <section class="ads-info info-coral">
+    <h2>Advertising</h2>
+    <p>How do real ads arrive on a site like this? In plain words: first the site needs its <strong>own domain with HTTPS</strong>, then the owner opens a free account with an <strong>ad network</strong> — for example Monetag or Adsterra, which approve new sites quickly, or Google AdSense, which has a stricter review — and finally the network gives a small <strong>code snippet</strong> that is pasted into the two "Your ad here" slots on this page. After that, visitors see real ads, and the money from those ads collects in the ad-network account. Monetag and Adsterra pay out from as little as $5; AdSense pays out from $100.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Temp Mail — free disposable email. Messages are received only; you cannot send email from here. Temporary addresses are not for important accounts — use your real email for banking and recovery.</p>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
