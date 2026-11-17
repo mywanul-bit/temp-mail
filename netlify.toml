@@ -1,0 +1,13 @@
+# Netlify settings for the Temp Mail site.
+# Publish the static site from public/, run serverless functions from
+# netlify/functions/, and keep the frontend's /api/* calls working by
+# rewriting them to the functions.
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
